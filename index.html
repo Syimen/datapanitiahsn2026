@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Panitia Hari Santri 2026</title>
+  <style>
+    * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #f4f7f6; margin: 0; padding: 15px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+    .container { background: white; padding: 25px; border-radius: 12px; max-width: 500px; width: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 6px solid #0f5132; }
+    h2 { color: #0f5132; margin-top: 0; text-align: center; font-size: 20px; line-height: 1.3; }
+    p.subtitle { text-align: center; color: #555; font-size: 13px; margin-bottom: 20px; font-weight: 500; }
+    .form-group { margin-bottom: 18px; }
+    label { display: block; font-weight: bold; margin-bottom: 6px; color: #333; font-size: 14px; }
+    select, input, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; outline: none; }
+    textarea { resize: vertical; min-height: 80px; }
+    select:focus, input:focus, textarea:focus { border-color: #0f5132; box-shadow: 0 0 5px rgba(15, 81, 50, 0.3); }
+    .required { color: red; }
+    .optional-text { font-weight: normal; color: #666; font-size: 12px; }
+    button { width: 100%; background-color: #0f5132; color: white; padding: 14px; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+    button:hover { background-color: #0a3822; }
+    #message { margin-top: 15px; padding: 12px; border-radius: 6px; display: none; text-align: center; font-weight: bold; font-size: 14px; }
+    .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+    .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>FORM PENDATAAN PANITIA BERSAMA HARI SANTRI 2026</h2>
+  <p class="subtitle">PCNU Kota Denpasar Bersama POKJA, LPTKA, FKPAI</p>
+
+  <form id="panitiaForm" onsubmit="submitForm(event)">
+    <div class="form-group">
+      <label for="jabatan">Jabatan / Seksi <span class="required">*</span></label>
+      <select id="jabatan" name="jabatan" required onchange="updateNamaOptions()">
+        <option value="">-- Pilih Jabatan Terlebih Dahulu --</option>
+        <optgroup label="Pengurus Harian (OC)">
+          <option value="Ketua OC">Ketua OC</option>
+          <option value="Wakil Ketua OC">Wakil Ketua OC</option>
+          <option value="Sekretaris OC">Sekretaris OC</option>
+          <option value="Wakil Sekretaris OC">Wakil Sekretaris OC</option>
+          <option value="Bendahara OC">Bendahara OC</option>
+          <option value="Wakil Bendahara OC">Wakil Bendahara OC</option>
+        </optgroup>
+        <optgroup label="Seksi-Seksi">
+          <option value="Kordinator Seksi Acara">Kordinator Seksi Acara</option>
+          <option value="Anggota Seksi Acara">Anggota Seksi Acara</option>
+          <option value="Kordinator Seksi Perlengkapan">Kordinator Seksi Perlengkapan</option>
+          <option value="Anggota Seksi Perlengkapan">Anggota Seksi Perlengkapan</option>
+          <option value="Kordinator Seksi Lomba">Kordinator Seksi Lomba</option>
+          <option value="Anggota Seksi Lomba">Anggota Seksi Lomba</option>
+          <option value="Kordinator Seksi Konsumsi">Kordinator Seksi Konsumsi</option>
+          <option value="Kordinator Seksi Kirab">Kordinator Seksi Kirab</option>
+          <option value="Anggota Seksi Kirab">Anggota Seksi Kirab</option>
+          <option value="Kordinator Seksi Humas">Kordinator Seksi Humas</option>
+          <option value="Anggota Seksi Humas">Anggota Seksi Humas</option>
+          <option value="Kordinator Seksi Dokumentasi">Kordinator Seksi Dokumentasi</option>
+          <option value="Anggota Seksi Dokumentasi">Anggota Seksi Dokumentasi</option>
+          <option value="Kordinator Seksi Keamanan">Kordinator Seksi Keamanan</option>
+          <option value="Anggota Seksi Keamanan">Anggota Seksi Keamanan</option>
+          <option value="Kordinator Seksi Kupon">Kordinator Seksi Kupon</option>
+          <option value="Anggota Seksi Kupon">Anggota Seksi Kupon</option>
+          <option value="Kordinator Seksi Kesenian">Kordinator Seksi Kesenian</option>
+          <option value="Anggota Seksi Kesenian">Anggota Seksi Kesenian</option>
+          <option value="Kordinator Seksi Penggalian Dana">Kordinator Seksi Penggalian Dana</option>
+          <option value="Anggota Seksi Penggalian Dana">Anggota Seksi Penggalian Dana</option>
+          <option value="Kordinator Seksi UMKM">Kordinator Seksi UMKM</option>
+          <option value="Anggota Seksi UMKM">Anggota Seksi UMKM</option>
+          <option value="Kordinator Seksi Kebersihan">Kordinator Seksi Kebersihan</option>
+          <option value="Anggota Seksi Kebersihan">Anggota Seksi Kebersihan</option>
+          <option value="Kordinator Seksi Kesehatan">Kordinator Seksi Kesehatan</option>
+        </optgroup>
+        <optgroup label="Merangkap Jabatan (Pakai DAN)">
+          <option value="Pengurus Harian DAN Kordinator/Anggota Seksi">Pengurus Harian DAN Kordinator/Anggota Seksi</option>
+          <option value="Anggota Seksi DAN Anggota Seksi Lainnya">Anggota Seksi DAN Anggota Seksi Lainnya</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="nama">Nama Lengkap <span class="required">*</span></label>
+      <select id="nama" name="nama" required onchange="checkManualName()">
+        <option value="">-- Pilih Jabatan Dahulu --</option>
+      </select>
+    </div>
+
+    <div class="form-group hidden" id="manualNameGroup">
+      <label for="namaManual">Ketik Nama Lengkap & Catatan Rangkap <span class="required">*</span></label>
+      <input type="text" id="namaManual" name="namaManual" placeholder="Contoh: Ust Syamsul Arifin (Wakil Sekretaris DAN Seksi Keamanan)">
+    </div>
+
+    <div class="form-group">
+      <label for="nohp">Nomor Ponsel / WhatsApp <span class="required">*</span></label>
+      <input type="tel" id="nohp" name="nohp" placeholder="Contoh: 081234567890" pattern="[0-9]{9,15}" required>
+    </div>
+
+    <div class="form-group">
+      <label for="catatan">Catatan / Koreksi Nama & Gelar <span class="optional-text">(Opsional)</span></label>
+      <textarea id="catatan" name="catatan" placeholder="Contoh: Mohon perbaikan penulisan gelar/nama, atau catatan lainnya..."></textarea>
+    </div>
+
+    <button type="submit" id="btnSubmit">KIRIM DATA</button>
+  </form>
+
+  <div id="message"></div>
+</div>
+
+<script>
+  // PASTE URL GAS ANDA DI SINI
+  const GAS_URL = "URL_WEB_APP_GAS_ANDA";
+
+  const dataPanitia = {
+    "Ketua OC": ["H. Ahmad Sunariyo, SE."],
+    "Wakil Ketua OC": ["Ir. M. I. Hery Susanto", "Ust. Abd Roup, S.Pd.I.", "Ust. Nurul Huda, S.Pd.I."],
+    "Sekretaris OC": ["Ust Mahfud"],
+    "Wakil Sekretaris OC": ["Ust Syamsul Arifin", "Sri Mulyani", "Rahmat"],
+    "Bendahara OC": ["Muhammad Nasta’in SE., SY., S.Si."],
+    "Wakil Bendahara OC": ["Salmiah, S.Pd.", "Hj. Anis Solihah", "Rino Nugraha", "Yuni Istiharoh", "Muhammad Azis Fikri"],
+    "Kordinator Seksi Acara": ["Ustazah Ninik N. Diana"],
+    "Anggota Seksi Acara": ["Dimas Revaldy", "Ust Hamid, M.Pd.I", "Bunda Abi"],
+    "Kordinator Seksi Perlengkapan": ["H. Farham Hani, SE"],
+    "Anggota Seksi Perlengkapan": ["Ust Mujiono, S.Pd", "Ust Rasbini, S.HI", "Ust Faizin", "Ust Kusnan", "H. Munawir", "H. Sujengkar", "H. Imam Nawawi", "Slamet Supriyadi", "Abd Azis", "Nanang Kosim", "Suwahyudi", "Reza Prasetyo", "Amin Yunior Muliranto", "Williaman", "Imam", "Samsudin", "Rudi Hermawan", "Farid Muktar", "Suherman", "A. Dwi Yulianto, S.Kom"],
+    "Kordinator Seksi Lomba": ["Nurul Ainy, S.Pd.I.,Gr."],
+    "Anggota Seksi Lomba": ["Jeviga Krisna", "Devi Nur Anjani", "Hj. Hadijah", "Ester puji astutik", "Nur Afidah Lutviani", "Baiq Wiwik Widayanti", "Roly Antika Rani", "Clara Vebista Dwi Claudia", "Riska Fitria Ramadhani", "Sofiyah", "Siti Zuhairiyah, S.Pd.I"],
+    "Kordinator Seksi Konsumsi": ["PC. Muslimat Kota Denpasar", "PAC Muslimat Denbar", "PAC Muslimat Densel", "PAC Muslimat Dentim", "PAC Muslimat Denut"],
+    "Kordinator Seksi Kirab": ["Ust. Farid Mubaroq, S.Pd.I."],
+    "Anggota Seksi Kirab": ["Ust. Alimun Hakim", "Ust. Makrufi Miftah, MS.I", "Ustazah Farida Hidayani, S.Pd.", "Ust. Andi Maryono, M.H.I", "Nuraian Saptarini Diah, ST.", "Hj. Siti Ulfa", "Najam Ardi Prasetyo", "Bambang Sugiono", "Marzawan", "Randi Suhendi", "Rafiq Anshori", "Dewi", "Sri Wahyuni", "Fitriyah", "Sholihah", "Aisyah", "Fatamorgani", "Nani Sumarni", "Ninik Duriyati", "Sukasri", "Fahira Bathef", "Sandi Auliya", "Alfinatus Syafa'ah maulana", "Mudiatur Rohmah", "Jhovita Rahma Lestari", "Adjie Lesmana", "Khoirul Anam", "Muhammad Fauzan Azmi", "Muhammad Ali Fikri", "Wahyu Akbar Saputra", "Aditya Maulana"],
+    "Kordinator Seksi Humas": ["H. Ahmad Jauhari"],
+    "Anggota Seksi Humas": ["H. Ahmad Sariadi, S.Pd", "H. Jasrifan, ST.", "MWC Denbar", "MWC Dentim", "MWC Denut", "MWC Densel"],
+    "Kordinator Seksi Dokumentasi": ["Ardiansyah Nudin"],
+    "Anggota Seksi Dokumentasi": ["M. Anshari, S.Kom", "Heri Chrisnanto", "Imam Wahyudi", "Almer Ramli Puhamsyah", "Moh. Syafi'i, S.Kom", "Febrian Fadilla Syahputra", "Fadjar Nurcholis", "Putri Aisyah Fadila"],
+    "Kordinator Seksi Keamanan": ["Saiful"],
+    "Anggota Seksi Keamanan": ["Misbahul Munir, SHI.", "Suwaifi", "Samsul Arifin"],
+    "Kordinator Seksi Kupon": ["Ali Usman, S.Pd."],
+    "Anggota Seksi Kupon": ["Nurul Huda", "Herny", "Luluk Amiarsih", "MWC NU Denbar", "MWC NU Densel", "MWC NU Denut", "MWC NU Dentim", "LPPTKA", "POKJA"],
+    "Kordinator Seksi Kesenian": ["H. Maskub"],
+    "Anggota Seksi Kesenian": ["A. Nizar", "Soleh", "Ali", "Titik", "Nina", "Yuda Kelana", "Karisma"],
+    "Kordinator Seksi Penggalian Dana": ["Ustd. Abdul Hamid, S.Pd.I."],
+    "Anggota Seksi Penggalian Dana": ["Dewi", "H. Anang", "H. Sugianto", "Nizam", "Hasyim Asharij", "H. Suyanto", "H. Umar", "H. Agus Salim", "Sri Wahyuni Fatayat", "Sholihah Fatayat", "Aisyah Fatayat", "Fitri Kurniawati Fatayat"],
+    "Kordinator Seksi UMKM": ["Hj. Martina, S.Pd.I"],
+    "Anggota Seksi UMKM": ["Kariani Maha Dewi", "Iin Candra", "Hj. Iffah Zainiyah, S.si"],
+    "Kordinator Seksi Kebersihan": ["H. Aang Joeharianto"],
+    "Anggota Seksi Kebersihan": ["Dian Warsito", "At Tahir", "H. Misyono", "Muzakki", "Mukiran Imroni", "Semua Panitia"],
+    "Kordinator Seksi Kesehatan": ["H. Dedy Rismawan"]
+  };
+
+  function updateNamaOptions() {
+    const jabatanSelect = document.getElementById('jabatan');
+    const namaSelect = document.getElementById('nama');
+    const manualGroup = document.getElementById('manualNameGroup');
+    const selectedJabatan = jabatanSelect.value;
+
+    namaSelect.innerHTML = '<option value="">-- Pilih Nama Anda --</option>';
+    manualGroup.classList.add('hidden');
+    document.getElementById('namaManual').required = false;
+
+    if (!selectedJabatan) return;
+
+    if (selectedJabatan.includes('DAN')) {
+      const opt = document.createElement('option');
+      opt.value = 'LAINNYA';
+      opt.textContent = '+ Ketik Nama Manual & Detail Rangkap';
+      namaSelect.appendChild(opt);
+      namaSelect.value = 'LAINNYA';
+      checkManualName();
+    } else if (dataPanitia[selectedJabatan]) {
+      dataPanitia[selectedJabatan].forEach(nama => {
+        const opt = document.createElement('option');
+        opt.value = nama;
+        opt.textContent = nama;
+        namaSelect.appendChild(opt);
+      });
+      const optLain = document.createElement('option');
+      optLain.value = 'LAINNYA';
+      optLain.textContent = '+ Nama Tidak Ada / Ketik Manual';
+      namaSelect.appendChild(optLain);
+    }
+  }
+
+  function checkManualName() {
+    const namaSelect = document.getElementById('nama');
+    const manualGroup = document.getElementById('manualNameGroup');
+    const manualInput = document.getElementById('namaManual');
+
+    if (namaSelect.value === 'LAINNYA') {
+      manualGroup.classList.remove('hidden');
+      manualInput.required = true;
+    } else {
+      manualGroup.classList.add('hidden');
+      manualInput.required = false;
+    }
+  }
+
+  function submitForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('btnSubmit');
+    const msg = document.getElementById('message');
+    
+    btn.disabled = true;
+    btn.textContent = 'MENGIRIM...';
+    msg.style.display = 'none';
+
+    const payload = {
+      jabatan: document.getElementById('jabatan').value,
+      nama: document.getElementById('nama').value,
+      namaManual: document.getElementById('namaManual').value,
+      nohp: document.getElementById('nohp').value,
+      catatan: document.getElementById('catatan').value
+    };
+
+    fetch(GAS_URL, {
+      method: 'POST',
+      mode: 'no-cors', // Menghindari isu CORS di browser
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(() => {
+      btn.disabled = false;
+      btn.textContent = 'KIRIM DATA';
+      msg.style.display = 'block';
+      msg.className = 'success';
+      msg.textContent = 'Data berhasil dikirim! Terima kasih.';
+      document.getElementById('panitiaForm').reset();
+      updateNamaOptions();
+    })
+    .catch(err => {
+      btn.disabled = false;
+      btn.textContent = 'KIRIM DATA';
+      msg.style.display = 'block';
+      msg.className = 'error';
+      msg.textContent = 'Gagal mengirim data. Silakan coba lagi.';
+    });
+  }
+</script>
+</body>
+</html>
